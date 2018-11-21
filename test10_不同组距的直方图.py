@@ -27,10 +27,13 @@ plt.bar(range(len(quantity)), quantity, width=1)
 _x  = [i-0.5 for i in range(len(quantity)+1)]
 # 打印：[-0.5, 0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5]
 _xtick_labels = interval + [150]
-plt.xticks(_x, _xtick_labels)
+plt.xticks(_x, _xtick_labels)   # x轴的组距，按照_xtick_labels表明
 
 # 栅格
 plt.grid(linestyle='--')
+
+# 保存
+plt.savefig('./10不同组距的直方图')
 
 # 图形展示
 plt.show()
