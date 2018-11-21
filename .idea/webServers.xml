@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2b072626-e2dd-4244-a750-a5ece21f2c95" name="analysis_test1" url="http://127.0.0.1">
+        <fileTransfer host="127.0.0.1" port="1234" rootFolder="/home/pyvip/study/analysis/test1" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="1234" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
