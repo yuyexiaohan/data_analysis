@@ -1,7 +1,7 @@
 # coding=utf-8 
-# Time : 2018/11/21 10:21 
+# Time : 2018/11/21 10:40 
 # Author : achjiang
-# File : test6_条形图.py
+# File : test7_竖条条形图.py
 from matplotlib import pyplot as plt
 from matplotlib import font_manager
 
@@ -25,19 +25,19 @@ b=[56.01,26.94,17.53,16.49,15.45,12.96,11.8,11.61,11.28,11.12,10.49,10.3,8.75,7.
 plt.figure(figsize=(20,8), dpi=80)
 
 # 绘制条形图
-plt.bar(range(len(a)), b, width=0.5, color='green')
+plt.barh(range(len(a)), b, height=0.5, color='orange')
 plt.title('电影票房统计', fontproperties=my_font)
-plt.xlabel('电影名称', fontproperties=my_font)
-plt.ylabel('票房/亿元', fontproperties=my_font)
+plt.ylabel('电影名称', fontproperties=my_font)
+plt.xlabel('票房/亿元', fontproperties=my_font)
 
-# 设置x轴
-plt.xticks(range(len(a)), a, fontproperties=my_font, rotation=45)
+# 设置y轴
+plt.yticks(range(len(a)), a, fontproperties=my_font, rotation=0)
 
 # 展示栅格
 plt.grid(linestyle='--')
 
 # 保存图形
-plt.savefig('./6条形图.png')
+plt.savefig('./7竖条形图.png')
 
 # 展示
 plt.show()

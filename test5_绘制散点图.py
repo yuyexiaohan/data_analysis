@@ -26,8 +26,8 @@ my_font = font_manager.FontProperties(fname='./msyh.ttc') # ''中配置系统的
 plt.figure(figsize=(20,8), dpi=80)
 
 # 绘图-散点图-和折线图的唯一区别
-plt.scatter(x_3, y_3, label='3月')
-plt.scatter(x_10, y_10, label='10月')
+plt.scatter(x_3, y_3, label='3月', color='red')
+plt.scatter(x_10, y_10, label='10月', color='blue')
 
 # 设置图例
 plt.legend(prop=my_font)
