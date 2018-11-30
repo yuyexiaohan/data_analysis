@@ -4,6 +4,7 @@
 # File : test4_多条折线图.py
 from matplotlib import pyplot as plt
 from matplotlib import font_manager
+import random,  json
 
 
 """
