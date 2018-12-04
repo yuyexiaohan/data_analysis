@@ -26,3 +26,5 @@ plt.bar(range(len(_x)),_y)
 plt.xticks(range(len(_x)),_x)
 
 plt.show()
+
+plt.savefig("./07-starbucks-number10.png")
