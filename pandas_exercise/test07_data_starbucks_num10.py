@@ -4,6 +4,9 @@
 import pandas as pd
 from matplotlib import pyplot as plt
 
+"""
+使用matplotlib呈现出店铺总数排名前10的国家
+"""
 file_path = "./starbucks_store_worldwide.csv"
 
 df = pd.read_csv(file_path)
