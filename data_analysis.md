@@ -1,4 +1,11 @@
+## data-analysis
+数据分析常使用到的模块：
+- matplotlib
+- numpy
+- pandas
 
+---
+## 1. matplotlib
 ### matplotlib如何使用，绘制折线图，matplotlib如何设置线条颜色和风格
 
   ```python
@@ -52,7 +59,8 @@
   - plt.hist([1,2,3],组数)
   - 组数=（最大值-最小值）/ 组距
 
-#### numpy
+---
+## 2. numpy
   - 创建数组
   > import numpy as np
   np.array([])
@@ -111,6 +119,9 @@
   - np.hstack(t1,t2)
   - np.vstack(t1,t2)
 
+---
+## 3. pandas
+
 #### Series如何创建，如何进行索引和切片
   - pd.Series([])
   - pd.Series({})  #字典的键就是Series的索引
@@ -151,37 +162,56 @@
 #### merge
   - 按照某一列进行和并
   ```
-  [
-  [1,2,3],
-  [4,5,6]
-  ]
-  [
-  [10,2,31],
-  [43,52,62]
-  ]
-  ret: 左连接
-  [
-  [1,2,3,10,2,31],
-  [4,5,6,nan,nan,nan]
-  ]
+  # 使用merge方法，df3与df1交集的是1,(0,a)是1，匹配2次。
+# 当配置为1时，
 
-  ret: 内连接
-  [
-  [1,2,3,10,2,31]
-  ]
+In [25]: df3 = pd.DataFrame(np.arange(9).reshape((3,3)),columns=['f','a','x'])
 
-  ret: 外连接
-  [
-  [1,2,3,10,2,31]
-  [4,5,6，nan,nan,nan]
-  [nan,nan,nan,43,52,62]
-  ]
+In [26]: df3
+Out[26]:
+   f  a  x
+0  0  1  2
+1  3  4  5
+2  6  7  8
 
-  ret: 右连接
-  [
-  [1,2,3,10,2,31]
-  [nan,nan,nan,43,52,62]
-  ]
+In [27]: df1.merge(df3,on='a')
+Out[27]:
+     a    b    c    d  f  x
+0  1.0  1.0  1.0  1.0  0  2
+1  1.0  1.0  1.0  1.0  0  2
+
+# 3.各类连接：
+# 左连接：按照左边的df1为准
+In [28]: df1.merge(df3,on='a',how='left')
+Out[28]:
+     a    b    c    d  f  x
+0  1.0  1.0  1.0  1.0  0  2
+1  1.0  1.0  1.0  1.0  0  2
+
+# 右连接：按照右边的df3为准，右不同的在添加，其它没有的补nan
+In [29]: df1.merge(df3,on='a',how='right')
+Out[29]:
+     a    b    c    d  f  x
+0  1.0  1.0  1.0  1.0  0  2
+1  1.0  1.0  1.0  1.0  0  2
+2  4.0  NaN  NaN  NaN  3  5
+3  7.0  NaN  NaN  NaN  6  8
+
+# 内连接：and 交集操作
+In [30]: df1.merge(df3,on='a',how='inner')
+Out[30]:
+     a    b    c    d  f  x
+0  1.0  1.0  1.0  1.0  0  2
+1  1.0  1.0  1.0  1.0  0  2
+
+# 外连接: or 并集操作
+In [31]: df1.merge(df3,on='a',how='outer')
+Out[31]:
+     a    b    c    d  f  x
+0  1.0  1.0  1.0  1.0  0  2
+1  1.0  1.0  1.0  1.0  0  2
+2  4.0  NaN  NaN  NaN  3  5
+3  7.0  NaN  NaN  NaN  6  8
   ```
 
 #### 数据的分组和聚合
