@@ -83,7 +83,6 @@ Name: Brand, dtype: int64
 # print(grouped)
 # print(type(grouped)) # <class 'pandas.core.series.Series'>
 
-
 # 4.数据按照多个条件进行分组,返回DataFrame
 # df[["Brand"]]使用两个方括号，取里面具体的一维数组
 grouped1 = df[["Brand"]].groupby(by=[df["Country"],df["State/Province"]]).count()
@@ -96,5 +95,11 @@ print(grouped2,type(grouped2))
 print("*"*100)
 print(grouped3,type(grouped3))
 
-# 索引的方法和属性
+# 5.索引的方法和属性
 # print(grouped1.index)
+
+# 获取index：df.index
+# 指定index ：df.index = ['x','y']
+# 重新设置index : df.reindex(list("abcedf"))
+# 指定某一列作为index ：df.set_index("Country",drop=False)
+# 返回index的唯一值：df.set_index("Country").index.unique()
